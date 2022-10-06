@@ -37,6 +37,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <EditText
+        android:id="@+id/otp_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        tools:text="124356"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otp_text"
+        />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,25 +71,7 @@
             android:orientation="vertical"
             android:padding="15dp">
 
-            <com.mukesh.mukeshotpview.mukeshOtpView.MukeshOtpView
-                android:id="@+id/otp_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                tools:text="124356"
-                android:itemBackground="@drawable/background_shape"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:hideLineWhenFilled="false"
-                app:itemCount="6"
-                app:lineColor="@color/gray_scale"
-                app:state_filled="true"
-                app:viewType="none"
-                android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/otp_text"
-                />
+
 
             <Button
                 android:id="@+id/btnContinue"

@@ -35,7 +35,7 @@ class OTPActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         supportActionBar?.hide()
         val phoneNumber = intent.getStringExtra("phoneNumber")
-        //binding!!.tvLPhoneNumber.text = "Verify $phoneNumber"
+        binding!!.tvLPhoneNumber.text = "Verify $phoneNumber"
 
         val options = PhoneAuthOptions.newBuilder(auth!!)
             .setPhoneNumber(phoneNumber!!)
@@ -71,24 +71,20 @@ class OTPActivity : AppCompatActivity() {
             }).build()
 
         PhoneAuthProvider.verifyPhoneNumber(options)
-        binding!!.otpView.setOtpCompletionListener(object :MukeshOtpCompleteListener{
-            override fun otpCompleteListener(otp: String?) {
-                Log.d("OTPActivity 4 ", otp.toString())
-                val credential = otp?.let { PhoneAuthProvider.getCredential(verificationId!!, it) }
-                if (credential != null) {
-                    auth!!.signInWithCredential(credential)
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful){
-                                val intent = Intent(this@OTPActivity,SetupProfileActivity::class.java)
-                                startActivity(intent)
-                                finishAffinity()
-                            }else{
-                                Toast.makeText(this@OTPActivity, "Failed", Toast.LENGTH_SHORT).show()
-                            }
-                        }
-                }
-            }
 
-        })
+        binding!!.btnContinue.setOnClickListener {
+            val otp = binding!!.otpView.text.toString()
+            val credential = otp?.let { PhoneAuthProvider.getCredential(verificationId!!, it) }
+            auth!!.signInWithCredential(credential)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful){
+                        val intent = Intent(this@OTPActivity,SetupProfileActivity::class.java)
+                        startActivity(intent)
+                        finishAffinity()
+                    }else{
+                        Toast.makeText(this@OTPActivity, "Failed", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
     }
 }

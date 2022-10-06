@@ -24,6 +24,7 @@ class SetupProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySetupProfileBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+        dialog = ProgressDialog(this)
         dialog!!.setMessage("Updating Profile...")
         dialog!!.setCancelable(false)
         database = FirebaseDatabase.getInstance()
