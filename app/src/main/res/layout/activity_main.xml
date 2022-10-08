@@ -16,7 +16,7 @@
         android:textStyle="bold|normal"
         android:textAlignment="center"
         android:layout_marginTop="20dp"
-        android:textColor="#ED0456"
+        android:textColor="#182881"
         />
 
     <TextView

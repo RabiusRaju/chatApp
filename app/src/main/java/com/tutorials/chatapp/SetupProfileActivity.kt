@@ -2,7 +2,6 @@ package com.tutorials.chatapp
 
 import android.app.ProgressDialog
 import android.content.Intent
-import android.media.tv.TvContract
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.tutorials.chatapp.databinding.ActivitySetupProfileBinding
+import com.tutorials.chatapp.model.User
 import java.util.*
 
 class SetupProfileActivity : AppCompatActivity() {

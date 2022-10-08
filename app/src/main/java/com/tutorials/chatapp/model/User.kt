@@ -1,4 +1,4 @@
-package com.tutorials.chatapp
+package com.tutorials.chatapp.model
 
 /**
  * Created by MD.Rabius sani raju on 10/6/22.

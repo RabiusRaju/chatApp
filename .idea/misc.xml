@@ -4,11 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/background_shape.xml" value="0.2745" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21944444444444444" />
+        <entry key="app/src/main/res/drawable/bottom_shape.xml" value="0.3085" />
+        <entry key="app/src/main/res/drawable/receive_drawable.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable/receive_msg.xml" value="0.3085" />
+        <entry key="app/src/main/res/drawable/send_drawable.xml" value="0.3085" />
+        <entry key="app/src/main/res/drawable/send_msg.xml" value="0.3085" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.34322916666666664" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.34322916666666664" />
         <entry key="app/src/main/res/layout/activity_otpactivity.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_setup_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_verification.xml" value="0.34322916666666664" />
-        <entry key="app/src/main/res/layout/item_profile.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/layout/delete_layout.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/receive_msg.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout/send_msg.xml" value="0.3421875" />
       </map>
     </option>
   </component>
