@@ -3,6 +3,7 @@ package com.tutorials.chatapp
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -53,13 +54,14 @@ class MainActivity : AppCompatActivity() {
                 users!!.clear()
                 for (snapshort1 in snapshot.children ){
                     val user: User?= snapshort1.getValue(User::class.java)
+                    Log.d("UserAdapterList", user?.profileImage.toString())
                     if (!user!!.uid.equals(FirebaseAuth.getInstance().uid)) users!!.add(user)
                 }
                 usersAdapter!!.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+
             }
 
         })

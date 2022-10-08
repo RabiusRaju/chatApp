@@ -2,6 +2,7 @@ package com.tutorials.chatapp.adapter
 
 import android.app.AlertDialog
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,13 +27,14 @@ class MessagesAdapter(
 ): RecyclerView.Adapter<RecyclerView.ViewHolder?>()
 
 {
-    lateinit var messages: ArrayList<Message>
+    var messages: ArrayList<Message> = ArrayList()
     val ITEM_SENT =1
     val ITEM_REVEIVE=2
     val senderRoom:String
     var receiverRoom:String
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        Log.d("Message", ITEM_SENT.toString())
         return if(viewType == ITEM_SENT){
             val view = LayoutInflater.from(context).inflate(R.layout.send_msg,parent,false)
             SentMsgHolder(view)
@@ -53,6 +55,8 @@ class MessagesAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val message = messages[position]
+        Log.d("UserAdapterList", message.imageUrl.toString())
+
         if (holder.javaClass == SentMsgHolder::class.java){
             val viewHolder = holder as SentMsgHolder
             if(message.message.equals("photo")){
@@ -80,13 +84,13 @@ class MessagesAdapter(
                     message.messageId?.let { it1->
                         FirebaseDatabase.getInstance().reference.child("chats")
                             .child(senderRoom)
-                            .child("message")
+                            .child("messages")
                             .child(it1).setValue(message)
                     }
                     message.messageId.let { it1->
                         FirebaseDatabase.getInstance().reference.child("chats")
                             .child(receiverRoom)
-                            .child("message")
+                            .child("messages")
                             .child(it1!!).setValue(message)
                     }
                     dialog.dismiss()
@@ -96,7 +100,7 @@ class MessagesAdapter(
                     message.messageId?.let { it1->
                         FirebaseDatabase.getInstance().reference.child("chats")
                             .child(senderRoom)
-                            .child("message")
+                            .child("messages")
                             .child(it1).setValue(null)
                     }
                     dialog.dismiss()
@@ -105,7 +109,7 @@ class MessagesAdapter(
                     dialog.dismiss()
                 }
                 dialog.show()
-                false
+
             }
         }else{
             val viewHolder = holder as ReceiveMsgHolder
@@ -132,13 +136,13 @@ class MessagesAdapter(
                     message.messageId?.let { it1->
                         FirebaseDatabase.getInstance().reference.child("chats")
                             .child(senderRoom)
-                            .child("message")
+                            .child("messages")
                             .child(it1).setValue(message)
                     }
                     message.messageId.let { it1->
                         FirebaseDatabase.getInstance().reference.child("chats")
                             .child(receiverRoom)
-                            .child("message")
+                            .child("messages")
                             .child(it1!!).setValue(message)
                     }
                     dialog.dismiss()
@@ -148,7 +152,7 @@ class MessagesAdapter(
                     message.messageId?.let { it1->
                         FirebaseDatabase.getInstance().reference.child("chats")
                             .child(senderRoom)
-                            .child("message")
+                            .child("messages")
                             .child(it1).setValue(null)
                     }
                     dialog.dismiss()
@@ -157,7 +161,7 @@ class MessagesAdapter(
                     dialog.dismiss()
                 }
                 dialog.show()
-                false
+
             }
         }
     }

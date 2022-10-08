@@ -2,6 +2,7 @@ package com.tutorials.chatapp.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,10 +29,13 @@ RecyclerView.Adapter<UserAdapter.UserViewHolder>()
 
     override fun onBindViewHolder(holder: UserAdapter.UserViewHolder, position: Int) {
         val user = userList[position]
+
         holder.binding.userName.text = user.name
         Glide.with(context).load(user.profileImage)
             .placeholder(R.drawable.ic_avatar)
             .into(holder.binding.profile)
+
+
 
         holder.itemView.setOnClickListener{
             val intent = Intent(context,ChatActivity::class.java)

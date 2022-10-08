@@ -25,7 +25,8 @@ class VerificationActivity : AppCompatActivity() {
         binding!!.edtNumber.requestFocus()
         binding!!.btnContinue.setOnClickListener {
             val intent = Intent(this@VerificationActivity,OTPActivity::class.java)
-            intent.putExtra("phoneNumber",binding!!.edtNumber.text.toString())
+            val phoneNumber = "+88"+binding!!.edtNumber.text.toString()
+            intent.putExtra("phoneNumber",phoneNumber)
             startActivity(intent)
         }
     }

@@ -74,6 +74,7 @@ class OTPActivity : AppCompatActivity() {
 
         binding!!.btnContinue.setOnClickListener {
             val otp = binding!!.otpView.text.toString()
+
             val credential = otp?.let { PhoneAuthProvider.getCredential(verificationId!!, it) }
             auth!!.signInWithCredential(credential)
                 .addOnCompleteListener { task ->
