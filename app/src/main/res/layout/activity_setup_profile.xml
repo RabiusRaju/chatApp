@@ -60,7 +60,7 @@
                 android:background="@drawable/background_shape"
                 android:ems="1"
                 android:hint="Type your name"
-                android:inputType="phone"
+                android:inputType="text"
                 android:padding="10dp"
                 android:textColor="#1C1C1C"
                 android:textSize="20sp"
