@@ -96,6 +96,7 @@ class ChatActivity : AppCompatActivity() {
                         message!!.messageId = snapshot1.key
                         Log.d("ChatActivity", message.toString())
                         messages.add(message)
+                        // raju
                     }
                     adapter!!.notifyDataSetChanged()
                 }
