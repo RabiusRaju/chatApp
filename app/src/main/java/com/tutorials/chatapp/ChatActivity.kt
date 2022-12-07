@@ -97,6 +97,7 @@ class ChatActivity : AppCompatActivity() {
                         Log.d("ChatActivity", message.toString())
                         messages.add(message)
                         // raju
+                        /testing 
                     }
                     adapter!!.notifyDataSetChanged()
                 }
